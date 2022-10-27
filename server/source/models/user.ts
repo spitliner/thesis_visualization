@@ -13,4 +13,8 @@ class UserModel {
             
         }
     }
+
+    static async getUser(username : string) {
+        
+    }
 }

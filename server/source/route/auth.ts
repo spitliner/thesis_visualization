@@ -7,17 +7,25 @@ router.put('/', async (request, response) => {
         const {username, password, name, surname, email, phone_number} = request.body;
     } catch (error) {
 
-    } finally {
-
     }
 });
 
-router.get('/', async (request, response) => {
+router.get('/',async (request, response) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+});
+
+router.post('/', async (request, response) => {
     try {
         const {username, password} = request.body;
     } catch (error) {
 
-    } finally {
-
     }
 });
+
+
+
+module.exports = router;
