@@ -1,7 +1,7 @@
 import argon2 = require('argon2');
 require("dotenv").config();
 
-export class Authentication {
+class Authentication {
     static async passwordHash (password : string){
         try {
             return argon2.hash(password, {
@@ -24,3 +24,5 @@ export class Authentication {
         return Promise.reject("No known algo");
     }
 }
+
+module.exports = Authentication;

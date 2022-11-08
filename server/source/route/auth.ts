@@ -1,10 +1,12 @@
 import express from 'express';
+import auth = require('../middleware/auth');
 
 const router = express.Router();
 
 router.put('/', async (request, response) => {
     try {
         const {username, password, name, surname, email, phone_number} = request.body;
+
     } catch (error) {
 
     }

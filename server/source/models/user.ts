@@ -6,7 +6,9 @@ class UserModel {
             let sql : string = "INSERT INTO 'Employee' ('username', 'password', 'name', 'surname', 'email', 'phone_number') VALUES (?, ?, ?, ?, ?, ?)";
             return new Promise(function(resolve, reject) {
                 con.query(sql, [username, password, name, surname, email, phone], function(err, result, fields) {
-                    
+                    if (err) {
+                        throw err;
+                    }
                 });
             });
         } catch (error) {
@@ -14,7 +16,22 @@ class UserModel {
         }
     }
 
-    static async getUser(username : string) {
+    static async getUserHash(username : string) {
+        try {
+            let sql : string = "";
+            return new Promise(function(resolve, reject) {
+                con.query(sql, [], function(err, result, fields) {
+                    
+                });
+            });
+        } catch (error) {
+            
+        }        
+    }
+
+    static async getUserInfo(userID : number) {
         
     }
 }
+
+module.exports = UserModel;
