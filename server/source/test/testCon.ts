@@ -7,7 +7,7 @@ const con = mysql.createConnection({
     user            :   "db_test",
     password        :   "test1",
     database        :   "test_db",
-   // timezone        :   process.env.TIMEZONE,
+    timezone        :   process.env.TIMEZONE,
 });
 
 const sql : string = "SELECT * FROM test_table_2";
