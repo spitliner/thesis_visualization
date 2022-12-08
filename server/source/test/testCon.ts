@@ -1,25 +1,34 @@
-import mysql = require("mysql");
-import { getErrorMessage } from "../middleware/errorHandling";
+import fs = require('fs');
+import crypto from 'crypto';
+require("dotenv").config();
 
+//const passphrase:string = crypto.randomBytes(1536).toString('base64');
 
-const con = mysql.createConnection({
-    host            :   "localhost",
-    user            :   "db_test",
-    password        :   "test1",
-    database        :   "test_db",
-    timezone        :   process.env.TIMEZONE,
-});
+//console.log(process.env.PASSPHRASE)
 
-const sql : string = "SELECT * FROM test_table_2";
-try {
-    con.query(sql, function(error, result, fields){
-        if (error) {
-            throw error.code;
+const keypair = crypto.generateKeyPairSync(
+    'ec',
+    {
+        namedCurve: "P-384",
+        publicKeyEncoding: {
+            type: 'spki',
+            format: 'pem',
+        },
+        privateKeyEncoding: {
+            type: 'pkcs8',
+            format: 'pem',
+            //cipher : 'aes-256-cbc',
+            //passphrase: String(process.env.PASSPHRASE)
         }
+    }
+)
 
-        console.log(result);
-        //console.log(fields);
-    });
-} catch (error) {
-    console.log(error);
-}
+//console.log(process.env.PASSPHRASE)
+
+fs.writeFile('privatekey.pem', keypair.privateKey, function (err) {
+    if (err) return console.log(err);
+})
+
+fs.writeFile('publickey.pem', keypair.publicKey, function (err) {
+    if (err) return console.log(err);
+})

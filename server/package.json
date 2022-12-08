@@ -2,7 +2,7 @@
   "name": "thesis_visualization_server",
   "version": "0.0.1-alpha",
   "description": "",
-  "main": "main.ts",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/nodemon main.js"

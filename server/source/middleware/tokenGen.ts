@@ -5,7 +5,7 @@ class TokenGenerating {
         
     }
 
-    static async verifyToken() {
+    static async verifyToken(token: string) {
         
     }
 }
